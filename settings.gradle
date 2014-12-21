@@ -1,0 +1,1 @@
+include "modules:core", "modules:web", "modules:admin-web", "modules:integration", "modules:scheduler"

@@ -1,0 +1,51 @@
+apply plugin: 'flyway'
+
+jar {
+    baseName = 'p2p-core'
+    version = '1.0.0'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+
+}
+
+ext {
+    H2DatabaseVersion = '1.4.183'
+    flywayVersion = '3.1'
+    jbcryptVersion = '0.3m'
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion")
+    compile("org.flywaydb:flyway-core:$flywayVersion")
+    compile("org.mindrot:jbcrypt:$jbcryptVersion")
+
+    runtime("com.h2database:h2:$H2DatabaseVersion")
+    runtime("com.oracle:ojdbc6:11.2.0")
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        maven {
+            url("http://mvnrepository.com/artifact")
+        }
+    }
+
+    dependencies {
+        classpath("org.flywaydb:flyway-gradle-plugin:$flywayVersion",
+                "com.oracle:ojdbc6:11.2.0")
+    }
+}
+
+flyway {
+    driver = 'oracle.jdbc.driver.OracleDriver'
+    url = 'jdbc:oracle:thin:@localhost:1521:xe'
+    user = 'p2puser'
+    password = 'p2poracle'
+    schemas = ['P2PUSER']
+}
+
