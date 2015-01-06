@@ -1,8 +1,7 @@
 package com.hanxinbank.p2p.web.user.resource;
 
-import com.hanxinbank.p2p.core.user.domain.User;
 import com.hanxinbank.p2p.core.user.service.UserService;
-import com.hanxinbank.p2p.web.user.json.UserSummary;
+import com.hanxinbank.p2p.core.user.json.UserSummary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,6 +20,6 @@ public class UserResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public UserSummary message() {
-        return UserSummary.userToUserSummary.apply(userService.test());
+        return null;
     }
 }

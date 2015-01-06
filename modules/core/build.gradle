@@ -15,12 +15,16 @@ ext {
     H2DatabaseVersion = '1.4.183'
     flywayVersion = '3.1'
     jbcryptVersion = '0.3m'
+    kaptchaVersion = '2.3.2'
+    commonsCodecVersion = '1.10'
 }
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion")
     compile("org.flywaydb:flyway-core:$flywayVersion")
     compile("org.mindrot:jbcrypt:$jbcryptVersion")
+    compile("com.google:kaptcha:$kaptchaVersion")
+    compile("commons-codec:commons-codec:$commonsCodecVersion")
 
     runtime("com.h2database:h2:$H2DatabaseVersion")
     runtime("com.oracle:ojdbc6:11.2.0")
@@ -48,4 +52,3 @@ flyway {
     password = 'p2poracle'
     schemas = ['P2PUSER']
 }
-

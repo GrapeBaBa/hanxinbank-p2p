@@ -53,12 +53,21 @@ subprojects {
         hamcrestVersion = '1.3'
         mockitoVersion = '1.10.8'
         springBootVersion = '1.2.0.RELEASE'
+        slf4jVersion = '1.7.9'
+        logbackVersion = '1.1.2'
+        jodaTimeVersion = '2.6'
+        javaMoneyVersion = '1.0-RC1'
     }
 
 
 
     it.dependencies {
         compile("com.google.guava:guava:$guavaVersion",
+                "org.slf4j:slf4j-api:$slf4jVersion",
+                "org.slf4j:jcl-over-slf4j:$slf4jVersion",
+                "ch.qos.logback:logback-classic:$logbackVersion",
+                "joda-time:joda-time:$jodaTimeVersion",
+                "org.javamoney:moneta:$javaMoneyVersion",
                 "org.springframework.boot:spring-boot-starter-web:$springBootVersion")
 
         testCompile("junit:junit-dep:$junitVersion",
