@@ -4,6 +4,7 @@ import com.hanxinbank.p2p.core.common.domain.RMB;
 import com.hanxinbank.p2p.core.user.domain.User;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "ACCOUNTS")
@@ -29,6 +30,12 @@ public class Account {
     @Enumerated(EnumType.STRING)
     @Column(name = "ACCOUNT_TYPE")
     private AccountType accountType;
+
+    @Column(name = "CREATED_AT")
+    private LocalDateTime createdAt;
+
+    @Column(name = "UPDATED_AT")
+    private LocalDateTime updatedAt;
 
     public Account() {
     }
